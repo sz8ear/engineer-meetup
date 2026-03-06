@@ -1,0 +1,66 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title = 'エンジニア交流会 🍻 @ 新宿 Layover',
+  description = '2026年4月3日（木）19:00〜22:00、新宿Layoverにてエンジニア交流会を開催！参加費無料、出入り自由。エンジニア・デザイナー・PM、職種問わず大歓迎。',
+  ogImage = '/og-image.png',
+  canonicalUrl = 'https://engineer-meetup.vercel.app/',
+} = Astro.props;
+
+const pageTitle = title;
+const pageUrl = canonicalUrl;
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta -->
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="エンジニア交流会, 勉強会, 新宿, Layover, エンジニア, ネットワーキング, IT, 技術者" />
+    <meta name="author" content="エンジニア交流会主催チーム" />
+    <link rel="canonical" href={pageUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- OGP (Open Graph) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="エンジニア交流会 @ 新宿 Layover" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global lang="scss">
+  @use '../styles/global.scss';
+</style>

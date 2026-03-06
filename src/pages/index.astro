@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Schedule from '../components/Schedule.astro';
+import Price from '../components/Price.astro';
+import Venue from '../components/Venue.astro';
+import Organizers from '../components/Organizers.astro';
+import Faq from '../components/Faq.astro';
+import Join from '../components/Join.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SocialEvent",
+  "name": "エンジニア交流会 @ 新宿 Layover",
+  "description": "エンジニア・デザイナー・PM、職種問わず大歓迎のカジュアルな交流会。参加費無料、出入り自由。",
+  "startDate": "2026-04-03T19:00:00+09:00",
+  "endDate": "2026-04-03T22:00:00+09:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Layover",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "新宿区",
+      "addressRegion": "東京都",
+      "addressCountry": "JP"
+    },
+    "url": "https://layover-shinjyuku.com/"
+  },
+  "organizer": [
+    { "@type": "Person", "name": "初期アバター", "url": "https://x.com/bluena_boss" },
+    { "@type": "Person", "name": "しのゆー",     "url": "https://x.com/shinoyu__"   },
+    { "@type": "Person", "name": "やまさん",     "url": "https://x.com/Yamasan_CEO" },
+    { "@type": "Person", "name": "すずき",       "url": "https://x.com/Trash8ware"  }
+  ],
+  "isAccessibleForFree": true,
+  "inLanguage": "ja"
+};
+---
+<Layout>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+  <Hero />
+
+  <div class="section-divider"></div>
+
+  <Schedule />
+
+  <div class="section-divider"></div>
+
+  <Price />
+
+  <div class="section-divider"></div>
+
+  <Venue />
+
+  <div class="section-divider"></div>
+
+  <Organizers />
+
+  <div class="section-divider"></div>
+
+  <Faq />
+
+  <div class="section-divider"></div>
+
+  <Join />
+
+  <footer>
+    <p>エンジニア交流会 @ 新宿 Layover ｜ 2026.04.03</p>
+  </footer>
+</Layout>
+
+<script>
+  // モーダル開閉
+  const overlays = document.querySelectorAll<HTMLElement>('.modal-overlay');
+
+  function openModal(id: string) {
+    const overlay = document.getElementById(`modal-${id}`);
+    if (!overlay) return;
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    overlay.querySelector<HTMLElement>('.modal-close')?.focus();
+  }
+
+  function closeModal(overlay: HTMLElement) {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  // カードクリックで対応モーダルを開く
+  document.querySelectorAll<HTMLElement>('[data-modal]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.modal;
+      if (id) openModal(id);
+    });
+  });
+
+  // 閉じるボタン
+  overlays.forEach((overlay) => {
+    overlay.querySelector('.modal-close')?.addEventListener('click', () => {
+      closeModal(overlay);
+    });
+
+    // オーバーレイ背景クリックで閉じる
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeModal(overlay);
+    });
+  });
+
+  // Escキーで閉じる
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      overlays.forEach((overlay) => {
+        if (overlay.classList.contains('is-open')) closeModal(overlay);
+      });
+    }
+  });
+</script>

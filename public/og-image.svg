@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#2a1a4e"/>
+      <stop offset="100%" stop-color="#1A1A2E"/>
+    </radialGradient>
+    <radialGradient id="blob1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6B9D" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#FF6B9D" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blob2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4CC9F0" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#4CC9F0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blob3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE135" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FFE135" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B9D"/>
+      <stop offset="100%" stop-color="#B5179E"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- blobs -->
+  <ellipse cx="150" cy="150" rx="350" ry="320" fill="url(#blob1)"/>
+  <ellipse cx="1100" cy="500" rx="380" ry="320" fill="url(#blob2)"/>
+  <ellipse cx="700" cy="80" rx="280" ry="240" fill="url(#blob3)"/>
+
+  <!-- border -->
+  <rect x="2" y="2" width="1196" height="626" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+
+  <!-- badge pill -->
+  <rect x="80" y="80" width="300" height="44" rx="22" fill="url(#badgeGrad)"/>
+  <text x="230" y="109" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1">Engineer Meetup 2026</text>
+
+  <!-- main title -->
+  <text x="80" y="230" font-family="Helvetica Neue, Arial, sans-serif" font-size="100" font-weight="900" fill="white" filter="url(#glow)" letter-spacing="-2">Engineer</text>
+  <text x="80" y="345" font-family="Helvetica Neue, Arial, sans-serif" font-size="100" font-weight="900" fill="#4CC9F0" filter="url(#glow)" letter-spacing="-2">Meetup</text>
+
+  <!-- sub copy -->
+  <text x="80" y="400" font-family="Helvetica Neue, Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.6)" letter-spacing="1">Connect. Talk. Drink.</text>
+
+  <!-- divider line -->
+  <line x1="80" y1="432" x2="680" y2="432" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+  <!-- date chip -->
+  <rect x="80" y="452" width="200" height="46" rx="23" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <text x="180" y="481" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">Apr. 3 (Thu)</text>
+
+  <!-- time chip -->
+  <rect x="295" y="452" width="210" height="46" rx="23" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <text x="400" y="481" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">19:00 - 22:00</text>
+
+  <!-- venue chip -->
+  <rect x="520" y="452" width="200" height="46" rx="23" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <text x="620" y="481" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">Shinjuku Layover</text>
+
+  <!-- free badge -->
+  <rect x="80" y="520" width="150" height="38" rx="19" fill="rgba(6,214,160,0.15)" stroke="rgba(6,214,160,0.4)" stroke-width="1"/>
+  <text x="155" y="544" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="700" fill="#06D6A0" text-anchor="middle">Free Entry</text>
+
+  <!-- beer mug (right side) -->
+  <g transform="translate(880, 100)">
+    <!-- glow -->
+    <ellipse cx="140" cy="240" rx="120" ry="110" fill="#FF6B9D" opacity="0.1"/>
+    <ellipse cx="140" cy="240" rx="90" ry="80" fill="#B5179E" opacity="0.08"/>
+    <!-- mug body -->
+    <path d="M75 90 L92 350 H188 L205 90 Z" fill="url(#badgeGrad)" opacity="0.75"/>
+    <path d="M75 90 L92 350 H188 L205 90 Z" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+    <!-- handle -->
+    <path d="M203 145 Q260 145 260 215 Q260 285 203 285" fill="none" stroke="#FF6B9D" stroke-width="16" stroke-linecap="round" opacity="0.85"/>
+    <path d="M203 145 Q250 145 250 215 Q250 285 203 285" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="16" stroke-linecap="round"/>
+    <!-- foam -->
+    <ellipse cx="140" cy="90" rx="70" ry="30" fill="white" opacity="0.93"/>
+    <ellipse cx="112" cy="72" rx="25" ry="20" fill="white" opacity="0.97"/>
+    <ellipse cx="140" cy="64" rx="28" ry="22" fill="white"/>
+    <ellipse cx="168" cy="70" rx="22" ry="18" fill="white" opacity="0.9"/>
+    <!-- bubbles -->
+    <circle cx="118" cy="210" r="5" fill="rgba(255,255,255,0.2)"/>
+    <circle cx="148" cy="255" r="4" fill="rgba(255,255,255,0.15)"/>
+    <circle cx="165" cy="180" r="6" fill="rgba(255,255,255,0.18)"/>
+    <circle cx="128" cy="305" r="3" fill="rgba(255,255,255,0.12)"/>
+    <circle cx="172" cy="130" r="4" fill="rgba(255,255,255,0.15)"/>
+  </g>
+
+  <!-- neon ring accent -->
+  <ellipse cx="1050" cy="315" rx="200" ry="200" fill="none" stroke="#4CC9F0" stroke-width="1" opacity="0.08"/>
+  <ellipse cx="1050" cy="315" rx="160" ry="160" fill="none" stroke="#FF6B9D" stroke-width="1" opacity="0.06"/>
+
+  <!-- bottom tag -->
+  <text x="1120" y="600" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.2)" text-anchor="end">engineer-meetup.vercel.app</text>
+</svg>

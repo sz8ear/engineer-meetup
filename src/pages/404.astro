@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="404 - ページが見つかりません | エンジニア交流会">
+  <div class="not-found">
+    <div class="not-found-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="not-found-content">
+      <div class="not-found-code">404</div>
+      <p class="not-found-emoji">🍺💨</p>
+      <h1 class="not-found-title">ページが見つかりません</h1>
+      <p class="not-found-desc">お探しのページは飲みすぎて迷子になったようです。<br />もしくはURLが間違っているかもしれません。</p>
+      <a href="/" class="cta-btn">🏠 トップに戻る</a>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/global.scss' as *;
+
+  .not-found {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+
+    &-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    &-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    &-code {
+      font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+      font-weight: 900;
+      font-size: clamp(6rem, 25vw, 14rem);
+      line-height: 1;
+      background: linear-gradient(135deg, #FF6B9D, #4CC9F0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.2rem;
+      filter: drop-shadow(0 0 40px rgba(76, 201, 240, 0.3));
+    }
+
+    &-emoji {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      margin-bottom: 1.5rem;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    &-title {
+      font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      color: #FAFAFA;
+      margin-bottom: 1rem;
+    }
+
+    &-desc {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      opacity: 0.6;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-12px); }
+  }
+</style>

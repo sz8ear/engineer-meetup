@@ -1,0 +1,135 @@
+---
+const organizers = [
+  {
+    id: 'bluena_boss',
+    name: '初期アバター',
+    xHandle: '@bluena_boss',
+    xUrl: 'https://x.com/bluena_boss',
+    avatar: '/avatars/bluena_boss.jpg',
+    bio: `株式会社ブルーナ代表
+
+【当社について】
+SES事業(高還元 x キャリア伴走支援)を行っています。
+
+事業の特徴:
+■案件単価の86%を還元
+ブルーナでは契約単価の81~86%を社員に還元しています。
+前職より平均150万円の給与アップを実現しております。
+
+■資格取得支援で入社後も給与アップ
+入社後もキャリアアップできる環境を用意しております。資格取得補助はもちろん、自己管理が苦手な方向けのスケジュール策定まで支援。
+「頑張りたい」気持ちを徹底フォロー!
+
+【私について】
+36歳。明治大学大学院修了(MBA)。8年間ゲーム開発の現場におりました。地元は長崎県の五島列島で、よく釣りをしていました。
+現在は旅行やジムに行くことが趣味です。
+SNSでは「ごえもん社長」としてSESのリアルを発信しております。`,
+    message: 'どっこいしょ',
+    links: [
+      { label: 'bluena.co.jp', url: 'https://www.bluena.co.jp/' },
+      { label: 'YouTube — SES_SOUL', url: 'https://www.youtube.com/@SES_SOUL' },
+    ],
+  },
+  {
+    id: 'shinoyu__',
+    name: 'しのゆー',
+    xHandle: '@shinoyu__',
+    xUrl: 'https://x.com/shinoyu__',
+    avatar: '/avatars/shinoyu__.jpg',
+    bio: '唯一無二の最強お姉さん',
+    message: 'お酒はガソリンですよいちょ〜',
+    links: [
+      { label: 'shinjukudist.com', url: 'https://shinjukudist.com/' },
+    ],
+  },
+  {
+    id: 'Yamasan_CEO',
+    name: 'やまさん',
+    xHandle: '@Yamasan_CEO',
+    xUrl: 'https://x.com/Yamasan_CEO',
+    avatar: '/avatars/Yamasan_CEO.jpg',
+    bio: 'ReIT合同会社代表\n\nデザインL社と共同でマッチングサービスとラボを立ち上げました。',
+    message: '集え酒カスよいちょ〜',
+    links: [
+      { label: 'reit-inc.co.jp', url: 'https://www.reit-inc.co.jp/' },
+      { label: 'philoz.net — エンジニア無料のマッチングサービス', url: 'https://philoz.net/' },
+      { label: 'quratedlab.com — ラボ', url: 'https://quratedlab.com/' },
+    ],
+  },
+  {
+    id: 'Trash8ware',
+    name: 'すずき',
+    xHandle: '@Trash8ware',
+    xUrl: 'https://x.com/Trash8ware',
+    avatar: '/avatars/Trash8ware.jpg',
+    bio: '合同会社デザインL CTO\n\n完全プライベートツアー「旅の糸」をよろしくお願いします。\n親孝行にピッタリ。お声がけいただければ特別価格でご招待しますにゃ〜',
+    message: 'よいちょにゃ〜',
+    links: [
+      { label: 'design-link.net', url: 'https://design-link.net/' },
+      { label: '完全プライベートツアー — 親孝行', url: 'https://tabinoito.com/oyakouko/' },
+      { label: '完全プライベートツアー — カップルプラン', url: 'https://tabinoito.com/private/' },
+    ],
+  },
+];
+---
+
+<section id="organizers">
+  <div class="container">
+    <p class="section-tag" style="color: var(--pink);">👥 Organizers</p>
+    <h2 class="section-title">主催者</h2>
+
+    <div class="organizers-grid">
+      {organizers.map((org) => (
+        <button
+          type="button"
+          class="organizer-card"
+          data-modal={org.id}
+          aria-haspopup="dialog"
+        >
+          <div class="organizer-avatar">
+            <img src={org.avatar} alt={org.name} />
+          </div>
+          <div class="organizer-handle">{org.name}</div>
+          <div class="organizer-x">𝕏 {org.xHandle}</div>
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- モーダル -->
+{organizers.map((org) => (
+  <div
+    id={`modal-${org.id}`}
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby={`modal-title-${org.id}`}
+  >
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-avatar">
+          <img src={org.avatar} alt={org.name} />
+        </div>
+        <div class="modal-title">
+          <h3 id={`modal-title-${org.id}`}>{org.name}</h3>
+          <a href={org.xUrl} target="_blank" rel="noopener noreferrer">{org.xHandle}</a>
+        </div>
+        <button type="button" class="modal-close" aria-label="閉じる">✕</button>
+      </div>
+      <div class="modal-body">
+        {org.bio && <p>{org.bio}</p>}
+        {org.message && <p class="modal-message">{org.message}</p>}
+        {org.links.length > 0 && (
+          <div class="modal-links">
+            {org.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noopener noreferrer">
+                🔗 {link.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+))}
