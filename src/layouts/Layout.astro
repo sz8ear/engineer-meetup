@@ -15,6 +15,7 @@ const {
 
 const pageTitle = title;
 const pageUrl = canonicalUrl;
+const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `${canonicalUrl.replace(/\/$/, '')}${ogImage}`;
 ---
 <!doctype html>
 <html lang="ja">
@@ -37,15 +38,21 @@ const pageUrl = canonicalUrl;
     <meta property="og:url" content={pageUrl} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={ogImageAbsolute} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:site_name" content="エンジニア交流会 @ 新宿 Layover" />
 
-    <!-- Twitter Card -->
+    <!-- Twitter (X) Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@bluena_boss" />
+    <meta name="twitter:creator" content="@bluena_boss" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImageAbsolute} />
+    <meta name="twitter:image:alt" content="エンジニア交流会 2026 @ 新宿 Layover" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
