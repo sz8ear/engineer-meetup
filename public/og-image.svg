@@ -56,7 +56,7 @@
 
   <!-- date chip -->
   <rect x="80" y="452" width="200" height="46" rx="23" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-  <text x="180" y="481" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">Apr. 3 (Thu)</text>
+  <text x="180" y="481" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">Apr. 3 (Fri)</text>
 
   <!-- time chip -->
   <rect x="295" y="452" width="210" height="46" rx="23" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
